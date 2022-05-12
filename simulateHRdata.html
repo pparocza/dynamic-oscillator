@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>HR Simulator</h1>
+
+<form  id="myForm" action="setHeartDynamics.php">
+  <p>Valence</p>
+  <input type="radio" id="valence-pos" name="valence" value="1">
+  <label for="valence-pos">Positive</label><br>
+  <input type="radio" id="valence-neg" name="valence" value="-1">
+  <label for="valence-neg">Negative</label><br>
+
+
+  <p>Degree</p>
+  <input type="radio" id="degree1" name="degree" value="1">
+  <label for="degree1">1</label><br>
+  <input type="radio" id="degree2" name="degree" value="2">
+  <label for="degree1">2</label><br>
+  <input type="radio" id="degree3" name="degree" value="3">
+  <label for="degree1">3</label><br>
+  <input type="radio" id="degree4" name="degree" value="4">
+  <label for="degree1">4</label><br>
+  <input type="radio" id="degree5" name="degree" value="5">
+  <label for="degree1">5</label><br>
+  
+  <br>
+  
+  <input type="submit" onclick="myFunction()" value="Submit">
+</form>
+
+<script>
+function myFunction() {
+  document.getElementById("myForm").submit();
+}
+</script>
+
+</body>
+</html>
