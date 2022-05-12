@@ -13,7 +13,7 @@ startBtn.onclick = function() {
 	audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 	//create, tune, start and connect each oscillator sinea, sineb and sinec
 	var sinea = audioCtx.createOscillator();
-	sinea.frequency.value = 20;
+	sinea.frequency.value = 100;
 	sinea.type = "sawtooth";
 	sinea.start();
 	sinea.connect(audioCtx.destination);
@@ -27,10 +27,10 @@ fetch("./data.json")
 	valence=data.valence;
 	degree=data.degree;
 	
-	sinea.frequency.value = degree*10;
+	sinea.frequency.value = degree*75;
 	}
 ) 
-}, 5000);
+}, 2500);
 	
 	/*var sineb = audioCtx.createOscillator();
 	sineb.frequency.value = 523.25;
