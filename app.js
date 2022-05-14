@@ -16,8 +16,33 @@ startBtn.onclick = function() {
 	sinea.frequency.value = 20;
 	sinea.type = "sawtooth";
 	sinea.start();
-	sinea.connect(audioCtx.destination);
+	// sinea.connect(audioCtx.destination);
+
+	/* FILTER EXAMPLE
+
+	*/
+
+	var fund = 432;
+	var intervalArray = [1, 2, 1.5, 1.25];
+	var filterArray = [];
+	var qValue = fund;
+
+	for(i = 0 ; i < intervalArray.length; i++)
+	{
+		// create a filter and store it in the array
+		filterArray[i] = audioCtx.createBiquadFilter();
+
+		//specify filter parameters
+		filterArray[i].frequency.value = fund * intervalArray[i];
+		filterArray[i].Q.value = qValue;
+		filterArray[i].type = "bandpass";
+		
+		// connect sawtooth to filter and filter to output
+		sinea.connect(filterArray[i]);
+		filterArray[i].connect(audioCtx.destination);
+	}
 	
+
 	setInterval(function(){ 
 fetch("./data.json")
 	.then(response => response.json())
